@@ -59,6 +59,15 @@
             <groupId>com.yourpackagename</groupId>
             <version>${project.version}</version>
         </dependency>
+
+        <!--Problem when running jetty...-->
+        <dependency>
+            <artifactId>javaee-web-api</artifactId>
+            <groupId>javax</groupId>
+            <version>6.0</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -73,7 +82,27 @@
                     <reload>automatic</reload>
                 </configuration>
             </plugin>
+
+            <!--I fixed this locally by adding
+            the following to the build element of
+            yourwebproject\pom.xml which configures maven
+            to exclude this jar when packaging the war.-->
+
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-war-plugin</artifactId>-->
+                <!--<version>2.1.1</version>-->
+                <!--<configuration>-->
+                    <!--<packagingExcludes>WEB-INF/lib/javaee-web-api*.jar</packagingExcludes>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+
         </plugins>
+
+
+
+
+
     </build>
 
 
