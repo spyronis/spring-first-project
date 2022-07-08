@@ -1,2 +1,2 @@
-spring-first-project
+spring-boot-first-project
 ====================
